@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Stackly Dashboard</title>
+
+<link rel="stylesheet" href="style.css">
+<script src="auth.js"></script>
+</head>
+
+<body onload="checkAuth(); loadUser();">
+
+<div class="dashboard">
+
+<div class="sidebar">
+
+<h2>STACKLY</h2>
+
+<ul>
+<li><a href="#">Dashboard</a></li>
+<li><a href="#">Articles</a></li>
+<li><a href="#">Categories</a></li>
+<li><a href="#">Users</a></li>
+<li><a href="#">Settings</a></li>
+</ul>
+
+<button
+class="logout-btn"
+onclick="logout()">
+Logout
+</button>
+
+</div>
+
+<div class="main">
+
+<h1>
+Welcome,
+<span id="username"></span>
+</h1>
+
+<div class="cards">
+
+<div class="card">
+<h3>Total Articles</h3>
+<h2>145</h2>
+</div>
+
+<div class="card">
+<h3>Total Users</h3>
+<h2 id="userCount"></h2>
+</div>
+
+<div class="card">
+<h3>Today's Views</h3>
+<h2>24,512</h2>
+</div>
+
+<div class="card">
+<h3>Subscribers</h3>
+<h2>1,203</h2>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const admin =
+localStorage.getItem("stacklyAdmin");
+
+if(admin !== "true"){
+window.location.href="login.html";
+}
+
+function logout(){
+
+localStorage.removeItem("stacklyAdmin");
+
+window.location.href="login.html";
+}
+
+</script>
+</body>
+</html>
